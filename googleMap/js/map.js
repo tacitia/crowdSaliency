@@ -1,28 +1,76 @@
     var map;
-    var AminY = -90;
-    var AmaxY = 90;
-    var AminX = -180;
-    var AmaxX = 180;
-    var allowedBounds = null;
+    var DEBUG = true;   // Draw initial map view and center marker
+    var initialBounds = null;
+    var centerMarker = null;
+    
     google.maps.event.addDomListener(window, 'load', initMap);
         
+    // Providence: College Hill/Fox Point coordinates
+    var ne = [41.830161, -71.389589];
+    var sw = [41.820439, -71.409996];
+    var centerLat = (ne[0]+sw[0])/2;
+    var centerLng = (ne[1]+sw[1])/2;
+    
     // Create the Google Map…
     function initMap() {
         map = new google.maps.Map(d3.select("#googleMap").node(), {
             zoom: 11,
-            center: new google.maps.LatLng(41.7, -71.45),
+            center: new google.maps.LatLng(centerLat, centerLng),
             mapTypeId: google.maps.MapTypeId.SATELLITE
         });
 
         google.maps.event.addListener(map, 'zoom_changed', mapOnZoom); 
         google.maps.event.addListener(map, 'center_changed',function() { checkBounds(); });
         google.maps.event.addListener(map, 'idle', function() {
-            if (!allowedBounds) {
-                allowedBounds = map.getBounds();
-                AmaxX = allowedBounds.getNorthEast().lng();
-                AmaxY = allowedBounds.getNorthEast().lat();
-                AminX = allowedBounds.getSouthWest().lng();
-                AminY = allowedBounds.getSouthWest().lat();
+            // If first time loading map
+            if (!initialBounds) {
+                initialBounds = map.getBounds();
+                var bounds = new google.maps.LatLngBounds();
+                map.setZoom(100);
+                
+                // Extend map to include corners of desired bounding box
+                bounds.extend(new google.maps.LatLng(ne[0], ne[1]));
+                bounds.extend(new google.maps.LatLng(sw[0], sw[1]));
+                map.fitBounds(bounds);
+                initialBounds = map.getBounds();
+
+                // Draw both the ROI and initialBounds (if DEBUG)
+                var roiCoordinates = [
+                    new google.maps.LatLng(ne[0], ne[1]),
+                    new google.maps.LatLng(sw[0], ne[1]),
+                    new google.maps.LatLng(sw[0], sw[1]),
+                    new google.maps.LatLng(ne[0], sw[1]),
+                    new google.maps.LatLng(ne[0], ne[1]),
+                    ];
+                var roiPath = new google.maps.Polyline({
+                    path: roiCoordinates,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 5
+                  });   
+                roiPath.setMap(map);
+
+                if (DEBUG) {
+                    var initNeLat = initialBounds.getNorthEast().lat();
+                    var initNeLng = initialBounds.getNorthEast().lng();
+                    var initSwLat = initialBounds.getSouthWest().lat()
+                    var initSwLng = initialBounds.getSouthWest().lng();
+
+                    var initialBoundsCoordinates = [
+                        new google.maps.LatLng(initNeLat, initNeLng),
+                        new google.maps.LatLng(initSwLat, initNeLng),
+                        new google.maps.LatLng(initSwLat, initSwLng),
+                        new google.maps.LatLng(initNeLat, initSwLng),
+                        new google.maps.LatLng(initNeLat, initNeLng),
+                        ];
+                    var initialBoundsPath = new google.maps.Polyline({
+                        path: initialBoundsCoordinates,
+                        strokeColor: "#0000FF",
+                        strokeOpacity: 0.8,
+                        strokeWeight: 5
+                    });
+                    initialBoundsPath.setMap(map);
+                }
             }
         });
     }
@@ -31,17 +79,29 @@
         console.log(map.getZoom());
     }
 
-function checkBounds() {    
-    if (! allowedBounds.contains(map.getCenter())) {
-        var C = map.getCenter();
-        var X = C.lng();
-        var Y = C.lat();
-
-        if (X < AminX) {X = AminX;}
-        if (X > AmaxX) {X = AmaxX;}
-        if (Y < AminY) {Y = AminY;}
-        if (Y > AmaxY) {Y = AmaxY;}
-
-        map.setCenter(new google.maps.LatLng(Y,X));
+function checkBounds() {  
+    var c = map.getCenter();
+    var x = c.lng();
+    var y = c.lat();
+    var adjust = false; // Outside bounds
+    
+    // Restrict center coordinates to ROI bounds and set map if outside ROI
+    if (x < sw[1]) {x = sw[1]; adjust = true; }
+    if (x > ne[1]) {x = ne[1]; adjust = true; }
+    if (y < sw[0]) {y = sw[0]; adjust = true; }
+    if (y > ne[0]) {y = ne[0]; adjust = true; }
+    if (adjust) { map.setCenter(new google.maps.LatLng(y,x)); }
+    
+    // Draw a marker in the center of the map for debugging
+    if (DEBUG) {
+        if (!centerMarker) {
+            centerMarker = new google.maps.Marker({
+                position: map.getBounds().getCenter(),
+                map: map,
+                title:"Center of the map!"
+            });
+        } else {
+            centerMarker.setPosition(map.getBounds().getCenter());
+        }
     }
 }
