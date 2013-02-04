@@ -2,6 +2,8 @@
     var DEBUG = true;   // Draw initial map view and center marker
     var initialBounds = null;
     var centerMarker = null;
+    var userMarker = null;
+    var userMarkLocation = null;
     
     google.maps.event.addDomListener(window, 'load', initMap);
         
@@ -21,6 +23,10 @@
 
         google.maps.event.addListener(map, 'zoom_changed', mapOnZoom); 
         google.maps.event.addListener(map, 'center_changed',function() { checkBounds(); });
+		google.maps.event.addListener(map, 'click', function(event) {
+		    placeMarker(event.latLng);
+	    });
+                                          
         google.maps.event.addListener(map, 'idle', function() {
             // If first time loading map
             if (!initialBounds) {
@@ -104,4 +110,45 @@ function checkBounds() {
             centerMarker.setPosition(map.getBounds().getCenter());
         }
     }
+}
+
+/* Place the marker for the user;
+ * if the marker exists already, update its location and tooltip
+ */
+function placeMarker(location) {
+    if (!userMarker) {
+        userMarker = new google.maps.Marker({
+            position: location, 
+            map: map,
+            icon: {
+                path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                fillColor: "#4444FF",
+                fillOpacity: 0.8,
+                strokeColor: "#000055",
+                strokeOpacity: 0.9,
+                strokeWeight: 3,
+                scale: 12
+              },
+            draggable: true
+        });
+        updateMarkLocation(location);
+        
+        // Update title when dragged
+        google.maps.event.addListener(userMarker, 'dragend', function(event){ 
+            updateMarkLocation(this.getPosition()); 
+        });
+	    
+    } else {
+        updateMarkLocation(location);
+    }
+}
+
+/* Update the position, title, and location state for the user's marker
+ */
+function updateMarkLocation(location) {
+    userMarker.setPosition(location);
+    userMarker.setTitle("Lat: " + location.lat() + ",\nLng: " + location.lng());
+    userMarkerLocation = location;
+    
+    console.log("userMarkerLocation = " + userMarkerLocation);
 }
