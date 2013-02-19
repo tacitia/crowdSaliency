@@ -31,6 +31,7 @@
         });
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(event.latLng);
+            recordMarkAction(event.latLng);
 	    });
                                           
         google.maps.event.addListener(map, 'idle', function() {
