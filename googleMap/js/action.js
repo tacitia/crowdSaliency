@@ -19,14 +19,15 @@ function resetCurrentAction() {
   */
 function recordMarkAction(latLng) {
     var currentTime = new Date();
+    var mouseTrace = "x:" + mouseLoc.x + ",y:" + mouseLoc.y + ",time:" + 0;
 
     var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY:
             mouseLoc.y };
     var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x +
             ",mouseY:" + mouseLoc.y;
 
-    var markAction = { actionName: "mark", time: currentTime.toString(), actionParameter:
-            actionParameter, actionString: actionString };
+    var markAction = { actionName: "mark", time: currentTime.toString(), mouseTrace: mouseTrace,
+            actionParameter: actionParameter, actionString: actionString };
     console.log(markAction);
 }
 
