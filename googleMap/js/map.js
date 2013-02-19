@@ -20,9 +20,15 @@
             center: new google.maps.LatLng(centerLat, centerLng),
             mapTypeId: google.maps.MapTypeId.SATELLITE
         });
-
-        google.maps.event.addListener(map, 'zoom_changed', mapOnZoom); 
-        google.maps.event.addListener(map, 'center_changed',function() { checkBounds(); });
+        oldZoom = map.getZoom();
+        oldCenter = map.getCenter();
+        google.maps.event.addListener(map, 'zoom_changed', function() {
+            recordZoomAction();
+        }); 
+        google.maps.event.addListener(map, 'center_changed', function() {
+            recordPanAction();
+            checkBounds(); 
+        });
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(event.latLng);
 	    });
@@ -81,10 +87,7 @@
         });
     }
 
-    function mapOnZoom() {
-        console.log(map.getZoom());
-    }
-
+    
 function checkBounds() {  
     var c = map.getCenter();
     var x = c.lng();
