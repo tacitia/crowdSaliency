@@ -1,57 +1,52 @@
 <? 
-    $datasetKey = $_POST['datasetKey']; 	/*int*/
-    $nodeName = $_POST['nodeName'];			/*string*/
-    $parentKey = $_POST['parentKey'];		/*int*/
-    $depth = $_POST['depth'];			/*int*/
-    $userID = $_POST['userID'];			/*int*/
-    $notes = $_POST['notes'];           /*string*/
-    
-    $con = mysql_connect("localhost", "tacitia_brainIDC", "Ophelia621");
+    $actionData = $_POST['actionData']; 
+    $sessionLength = $_POST['sessionLength'];
+
+    $con = mysql_connect("localhost", "tacitia_usrStdy", "48278059");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
     }
     else {
-        //echo 'Connection successful' . "\n";
+        echo 'Connection successful' . "\n";
     }
 
-    mysql_select_db("tacitia_brainData", $con);
-
-
-	/*
-    $nodeTableName = $datasetName . '_nodes';
+    mysql_select_db("tacitia_userStudy", $con);
     
     mysql_query("
-        INSERT INTO Vision_nodes (name)
-        VALUES ($uid, $sessionLength);
+        INSERT INTO General (duration)
+        VALUES ($sessionLength);
     ", $con);
-	*/
+
     echo mysql_error($con) . "\n";
+          
+    $result = mysql_query("
+        SELECT session_id FROM General ORDER BY session_id DESC LIMIT 1;
+    ", $con);
     
+    echo mysql_error($con) . "\n";
+    $sessionId;
     
-    mysql_query("INSERT INTO user_nodes (name, parent, depth, userID, datasetKey, notes)
-VALUES ('$nodeName', '$parentKey','$depth','$userID', '$datasetKey', '$notes')");
-
-    $query = "SELECT * FROM user_nodes 
-    WHERE name = '" . $nodeName. "' AND datasetKey = " . $datasetKey;
-
-    try{
-        	$result = mysql_query($query, $con);
-    }catch(Exception $e){
-    	    echo 'SQL Query: '.$query;
-    	    echo ' caused exception: ',  $e->getMessage(), "\n";
-    }
-
-    $node = array();
     while ($row = mysql_fetch_array($result)) {
-    	    $node['key'] = $row['key'];
-        	$node['name'] = $row['name'];
-        $node['parentKey'] = $row['parent'];
-        	$node['depth'] = $row['depth'];
-        $node['datasetKey'] = $row['datasetKey'];
-        $node['notes'] = $row['notes'];
+        echo $row;
+        $sessionId = $row["session_id"];
     }
-
-    echo json_encode($node);
-	
-	mysql_close($con);
+                      
+    $actionDataLength = count($actionData);
+        
+    for ($i = 0; $i < $actionDataLength; ++$i) {
+        $obj = $actionData[$i];
+        $actionName = $obj["actionName"];
+        $time = $obj["time"];
+        $timeElapsed = intval($obj["timeElapsed"]);
+        $mouseTrace = '\'' . $obj["mouseTrace"] . '\'';
+        $actionString = $obj["actionString"];
+        mysql_query("
+            INSERT INTO ActionData (session_id, action_name, time, time_elapsed, mouse_trace, action_string)
+            VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionString);
+        ", $con);
+    }
+ 
+    echo mysql_error($con) . "\n";
+          
+    mysql_close($con);
 ?>
