@@ -81,7 +81,7 @@ function postActionData() {
     $.ajax({
         type: "POST",
         url: "../php/storeActionData.php",
-        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000}
+        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000},
         error: function(data) {
        console.log("Failed");
             console.log(data);
