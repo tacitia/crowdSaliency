@@ -6,6 +6,7 @@ var userActions = [];
 var oldZoom;
 var oldCenter;
 document.onmousemove = recordMouseMovement;
+document.onbeforeunload = postActionData;
 
 function resetCurrentAction(currentTime) {
     mouseTrace = "";
