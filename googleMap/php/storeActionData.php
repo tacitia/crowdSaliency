@@ -2,7 +2,7 @@
     $actionData = $_POST['actionData']; 
     $sessionLength = $_POST['sessionLength'];
 
-    $con = mysql_connect("localhost", "tacitia_usrStdy", "48278059");
+    $con = mysql_connect("localhost", "root", "");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
     }
@@ -10,7 +10,7 @@
         echo 'Connection successful' . "\n";
     }
 
-    mysql_select_db("tacitia_userStudy", $con);
+    mysql_select_db("crowdSaliency", $con);
     
     mysql_query("
         INSERT INTO General (duration)
