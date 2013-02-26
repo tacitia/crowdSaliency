@@ -21,16 +21,18 @@ function resetCurrentAction(currentTime) {
   */
 function recordMarkAction(latLng) {
     var currentTime = new Date();
-    var mouseTrace = "x:" + mouseLoc.x + ",y:" + mouseLoc.y + ",time:" + 0;
+//    var mouseTrace = "x:" + mouseLoc.x + ",y:" + mouseLoc.y + ",time:" + 0;
+    var timeElapsed = currentTime - startTime;
 
 /*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY:
             mouseLoc.y }; */
     var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x +
             ",mouseY:" + mouseLoc.y;
 
-    var markAction = { actionName: "mark", time: currentTime.toString(), mouseTrace: mouseTrace,
-            actionParam: actionString };
+    var markAction = { actionName: "mark", time: currentTime.toString(), timeElapsed: timeElapsed, 
+    		mouseTrace: mouseTrace, actionParam: actionString};
     console.log(markAction);
+    resetCurrentAction(currentTime);
 }
 
 function recordMouseMovement(e) {
@@ -49,7 +51,7 @@ function recordZoomAction() {
 //    var actionParameter = {loc: center, oldZoom: oldZoom, newZoom: newZoom};
     var actionString = "loc:" + center + ",oldZoom:" + oldZoom + ",newZoom:" + newZoom;
     var zoomAction = {actionName: "zoom", time: currentTime.toString(), timeElapsed: timeElapsed, 
-            mouseTrace: mouseTrace, actionString: actionString};
+            mouseTrace: mouseTrace, actionParam: actionString};
     console.log(zoomAction);
     userActions.push(zoomAction);
 
@@ -69,7 +71,7 @@ function recordPanAction() {
 //    var actionParameter = {startLoc: oldCenter, endLoc: newCenter, zoom: zoom};
     var actionString = "startLoc:" + oldCenter + ",endLoc:" + newCenter +",zoom:" + zoom;
     var panAction = {actionName: "pan", time: currentTime.toString(), timeElapsed: timeElapsed,
-    mouseTrace: mouseTrace, actionString: actionString};
+    mouseTrace: mouseTrace, actionParam: actionString};
     console.log(panAction);
     userActions.push(panAction);
 
