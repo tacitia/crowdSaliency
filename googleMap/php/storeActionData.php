@@ -39,10 +39,10 @@
         $time = $obj["time"];
         $timeElapsed = intval($obj["timeElapsed"]);
         $mouseTrace = '\'' . $obj["mouseTrace"] . '\'';
-        $actionString = $obj["actionString"];
+        $actionParam = $obj["actionParam"];
         mysql_query("
-            INSERT INTO ActionData (session_id, action_name, time, time_elapsed, mouse_trace, action_string)
-            VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionString);
+            INSERT INTO ActionData (session_id, action_name, time, time_elapsed, mouse_trace, action_param)
+            VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam);
         ", $con);
     }
  
