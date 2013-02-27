@@ -6,7 +6,7 @@ var userActions = [];
 var oldZoom;
 var oldCenter;
 document.onmousemove = recordMouseMovement;
-document.onbeforeunload = function() { console.log("!!!"); postActionData; return; }
+window.onbeforeunload = function() { console.log("!!!"); postActionData(); return ""; }
 
 function resetCurrentAction(currentTime) {
     mouseTrace = "";
@@ -83,7 +83,7 @@ function recordPanAction() {
 function postActionData() {
     $.ajax({
         type: "POST",
-        url: "../php/storeActionData.php",
+        url: "/php/storeActionData.php",
         data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000},
         error: function(data) {
        console.log("Failed");
@@ -91,10 +91,10 @@ function postActionData() {
         },
         success: function(data) {
             console.log("Success");
+            console.log(data);
         },
         async: false
     });	
-    return "";
 }
 
 
