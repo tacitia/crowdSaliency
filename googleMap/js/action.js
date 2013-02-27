@@ -83,7 +83,7 @@ function recordPanAction() {
 function postActionData() {
     $.ajax({
         type: "POST",
-        url: "/php/storeActionData.php",
+        url: "../googleMap/php/storeActionData.php",
         data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000},
         error: function(data) {
        console.log("Failed");
