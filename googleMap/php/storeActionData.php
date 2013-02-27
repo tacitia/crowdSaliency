@@ -34,13 +34,13 @@
         
     for ($i = 0; $i < $actionDataLength; ++$i) {
         $obj = $actionData[$i];
-        $actionName = $obj["actionName"];
+        $actionName = "'" . $obj["actionName"] . "'";
         $time = $obj["time"];
         $timeElapsed = intval($obj["timeElapsed"]);
-        $mouseTrace = '\'' . $obj["mouseTrace"] . '\'';
-        $actionParam = $obj["actionParam"];
+        $mouseTrace = "'" . $obj["mouseTrace"] . "'";
+        $actionParam = "'" . $obj["actionParam"] . "'";
         
-        $query = "INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param) VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam)";
+        $query = "INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param) VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam);";
         
         mysql_query("
             INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param)
