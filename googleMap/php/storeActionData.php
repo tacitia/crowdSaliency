@@ -27,7 +27,6 @@
     $sessionId;
     
     while ($row = mysql_fetch_array($result)) {
-        echo $row;
         $sessionId = $row["session_id"];
     }
                       
@@ -40,6 +39,9 @@
         $timeElapsed = intval($obj["timeElapsed"]);
         $mouseTrace = '\'' . $obj["mouseTrace"] . '\'';
         $actionParam = $obj["actionParam"];
+        
+        $query = "INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param) VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam)";
+        
         mysql_query("
             INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param)
             VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam);
@@ -47,6 +49,7 @@
     }
  
     echo mysql_error($con) . "\n";
+    echo $query;
           
     mysql_close($con);
 ?>
