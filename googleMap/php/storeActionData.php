@@ -36,8 +36,8 @@
     for ($i = 0; $i < $actionDataLength; ++$i) {
         $obj = $actionData[$i];
         $actionName = "'" . $obj["actionName"] . "'";
-/*        $time = "'" . $obj["time"] "'";
-        $timeElapsed = intval($obj["timeElapsed"]);
+        $time = "'" . $obj["time"] "'";
+/*        $timeElapsed = intval($obj["timeElapsed"]);
         $mouseTrace = "'" . $obj["mouseTrace"] . "'";
         $actionParam = "'" . $obj["actionParam"] . "'"; */
         
