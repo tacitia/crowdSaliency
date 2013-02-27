@@ -32,7 +32,7 @@
                       
     $actionDataLength = count($actionData);
         
-    for ($i = 0; $i < $actionDataLength; ++$i) {
+/*    for ($i = 0; $i < $actionDataLength; ++$i) {
         $obj = $actionData[$i];
         $actionName = "'" . $obj["actionName"] . "'";
         $time = "'" . $obj["time"] "'";
@@ -49,7 +49,7 @@
     }
  
     echo $query;
-    echo mysql_error($con) . "\n";
+    echo mysql_error($con) . "\n"; */
               
     mysql_close($con);
 ?>
