@@ -48,8 +48,8 @@
         ", $con);
     }
  
-    echo mysql_error($con) . "\n";
     echo $query;
-          
+    echo mysql_error($con) . "\n";
+              
     mysql_close($con);
 ?>
