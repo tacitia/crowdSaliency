@@ -46,7 +46,7 @@
         mysql_query($query, $con);
 	}
  
-    echo $query;
+//    echo $query;
     echo mysql_error($con) . "\n";
               
     mysql_close($con);
