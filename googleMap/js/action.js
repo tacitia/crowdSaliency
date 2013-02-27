@@ -32,6 +32,8 @@ function recordMarkAction(latLng) {
     var markAction = { actionName: "mark", time: currentTime.toString(), timeElapsed: timeElapsed, 
     		mouseTrace: mouseTrace, actionParam: actionString};
     console.log(markAction);
+    userActions.push(markAction);
+    
     resetCurrentAction(currentTime);
 }
 
