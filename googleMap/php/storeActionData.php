@@ -40,7 +40,7 @@
         $mouseTrace = "'" . $obj["mouseTrace"] . "'";
         $actionParam = "'" . $obj["actionParam"] . "'";
         
-        $query = "INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param) VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam);";
+//        $query = "INSERT INTO Action (session_id, action_name, time, time_elapsed, mouse_trace, action_param) VALUES ($sessionId, $actionName, $time, $timeElapsed, $mouseTrace, $actionParam);";
         
 //        mysql_query($query, $con);
 	}
