@@ -3,7 +3,7 @@
     $sessionLength = $_POST['sessionLength'];
     $mapType = $_POST['mapType'];
     $uiVer = $_POST['uiVer'];
-    $userID = $_POST['userID'];
+    $userID = "'" . $_POST['userID'] . "'";
 
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
