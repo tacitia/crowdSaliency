@@ -97,7 +97,6 @@ function postActionData() {
         },
         async: false
     });
-    return "";
 }
 
 
