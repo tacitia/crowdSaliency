@@ -86,7 +86,7 @@ function postActionData() {
     $.ajax({
         type: "POST",
         url: "../googleMap/php/storeActionData.php",
-        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000， mapType: mapType, uiVer: uiVer, userID: userID},
+        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: userID},
         error: function(data) {
        console.log("Failed");
             console.log(data);
