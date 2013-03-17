@@ -96,7 +96,8 @@ function postActionData() {
             console.log(data);
         },
         async: false
-    });	
+    });
+    return "";
 }
 
 
