@@ -4,7 +4,7 @@
 		if (userQualified) {
 	    	var sPageURL = window.location.search.substring(1);
 	    	alert(sPageURL);
-			window.location.replace('template.html' + sPageURL);
+			window.location.replace('template.html?' + sPageURL);
 		}
 	});
 
