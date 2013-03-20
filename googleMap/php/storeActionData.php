@@ -1,6 +1,9 @@
 <? 
     $actionData = $_POST['actionData']; 
     $sessionLength = $_POST['sessionLength'];
+    $mapType = $_POST['mapType'];
+    $uiVer = $_POST['uiVer'];
+    $userID = "'" . $_POST['userID'] . "'";
 
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
@@ -13,8 +16,8 @@
     mysql_select_db("crowdSaliency", $con);
     
     mysql_query("
-        INSERT INTO General (duration)
-        VALUES ($sessionLength);
+        INSERT INTO General (duration, user_id, map_type, ui_version)
+        VALUES ($sessionLength, $userID, $mapType, $uiVer);
     ", $con);
 
     echo mysql_error($con) . "\n";

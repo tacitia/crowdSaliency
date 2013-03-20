@@ -4,6 +4,14 @@
     var centerMarker = null;
     var userMarker = null;
     var userMarkLocation = null;
+    var mapTypeEnum = {
+    	"google":1,
+    	"sky":2
+    };
+    // action.js assumes the existence of the three varss
+    var mapType = mapTypeEnum["google"];
+	var uiVer = 1; //Not sure what different ui versions we will have
+	var userID = "admin";
     
     google.maps.event.addDomListener(window, 'load', initMap);
         
