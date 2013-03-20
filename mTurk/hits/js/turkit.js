@@ -75,6 +75,8 @@ $(function () {
     	$('body').empty().append('<h2>Please return this HIT</h2><p>You have done nothing wrong. However, for some reason, the requester for this HIT does not want you to complete it. This is probably because you have already participated in a group of HITs that are building on each other, and the requester wants to ensure that a variety of people work on the job. You may still be able to participate in future HITs in this process.</p><p><small>NOTE: This message is a temporary fix; we hope that Mechanical Turk itself will allow us to block specific workers from particular HITs, so that they do not show up under "HITs Available To You". Given this and other factors, Mechanical Turk requesters generally do not care how many HITs you return.</small></p><p><b>Sorry for the inconvenience.</b></p>')    	
     	return
     }
+    console.log("!!!");
+    console.log(params);
     if (params.assignmentId) {
         if (params.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE") {
             $('input').attr("disabled", "true")
