@@ -92,6 +92,7 @@ $(function () {
         $('form').attr('method', 'POST')
     }
     if (params.turkSubmitTo) {
+    	alert(params.turkSubmitTo);
         $('form').attr('action', params.turkSubmitTo + '/mturk/externalSubmit')
     }
     
