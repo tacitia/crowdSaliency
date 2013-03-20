@@ -101,12 +101,11 @@ function postActionData() {
         },
         async: false
     });
+    return "";
 }
 
 function getURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
-    console.log("???");
-    console.log(sPageURL);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
