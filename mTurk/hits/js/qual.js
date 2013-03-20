@@ -2,7 +2,9 @@
 		var userQualified = true;
 	
 		if (userQualified) {
-			window.location.replace('template.html');
+	    	var sPageURL = window.location.search.substring(1);
+	    	alert(sPageURL);
+			window.location.replace('template.html' + sPageURL);
 		}
 	});
 
