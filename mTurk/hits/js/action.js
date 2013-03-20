@@ -101,7 +101,6 @@ function postActionData() {
         },
         async: false
     });
-    return "";
 }
 
 function getURLParameter(sParam) {
