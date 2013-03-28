@@ -54,7 +54,6 @@ function recordZoomAction() {
     var actionString = "loc:" + center + ",oldZoom:" + oldZoom + ",newZoom:" + newZoom;
     var zoomAction = {actionName: "zoom", time: currentTime.toString(), timeElapsed: timeElapsed, 
             mouseTrace: mouseTrace, actionParam: actionString};
-    console.log(zoomAction);
     userActions.push(zoomAction);
 
     // update conditions
@@ -83,12 +82,14 @@ function recordPanAction() {
 }
 
 function postActionData() {
+    console.log("Posting data...");
+    
     $.ajax({
         type: "POST",
         url: "../googleMap/php/storeActionData.php",
         data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: userID},
         error: function(data) {
-       console.log("Failed");
+            console.log("Failed");
             console.log(data);
         },
         success: function(data) {
