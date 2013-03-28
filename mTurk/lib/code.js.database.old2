@@ -1,0 +1,38 @@
+// begin:844c
+__HITs = {
+}
+__S3_Objects = {
+}
+__stackFrames = {
+	"for-real:2" : {
+		"sequencialFrames" : [
+			{
+				"creationTime" : 1.363638331843E12,
+				"values" : {
+					"sortTree" : {
+						"index" : 0
+					}
+				},
+				"sequencialFrames" : [
+					{
+						"creationTime" : 1.363638331851E12
+					},
+					{
+						"creationTime" : 1.363638331867E12,
+						"sequencialFrames" : [
+							{
+								"creationTime" : 1.363638331876E12,
+								"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
+__safetyCounters = {
+	"moneySpent" : 0.02,
+	"hitsCreated" : 1
+}
+// end:844c
