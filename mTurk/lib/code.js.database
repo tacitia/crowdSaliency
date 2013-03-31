@@ -1,6 +1,18 @@
-// begin:fbb6
+// begin:37da
 __HITs = {
-	"sandbox:229GNTBJ3MMDAY0X17X2NHB9UWDAWR" : {
+	"sandbox:2WIOHOVR14IXXHNT3M8EFWA65PS76G" : {
+		"url" : "https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT"
+	},
+	"sandbox:2O8EOZFYQS1C5M7W9HIDV4IC90SILU" : {
+		"url" : "https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT"
+	},
+	"sandbox:26OAUC26DG67QUIBPK6K3COKA58C5Y" : {
+		"url" : "https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT"
+	},
+	"sandbox:2Y7CGJ2D21O39YIPU3GPVI2K60JC6E" : {
+		"url" : "https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT"
+	},
+	"sandbox:27IJG5TYMNCWB4PH9TJSVHX195IIMW" : {
 		"url" : "https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT"
 	}
 }
@@ -10,21 +22,45 @@ __stackFrames = {
 	"for-real" : {
 		"sequencialFrames" : [
 			{
-				"creationTime" : 1.36379668913E12,
+				"creationTime" : 1.364505332189E12,
 				"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n",
-				"returnValue" : "229GNTBJ3MMDAY0X17X2NHB9UWDAWR",
-				"returnTime" : 1.363796689341E12,
-				"printOutput" : "created HIT: 229GNTBJ3MMDAY0X17X2NHB9UWDAWR\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
+				"returnValue" : "2WIOHOVR14IXXHNT3M8EFWA65PS76G",
+				"returnTime" : 1.364505332454E12,
+				"printOutput" : "created HIT: 2WIOHOVR14IXXHNT3M8EFWA65PS76G\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
 			},
 			{
-				"creationTime" : 1.363796689343E12,
-				"onceFunc" : "\nfunction () {\n    if (!me.waitForHIT_callCount) {\n        me.waitForHIT_callCount = 0;\n        var a = me.getReviewableHITs(1);\n        if (a.totalNumResults == a.length) {\n            me.waitForHIT_reviewableHITs = new Set(a);\n            me.waitForHIT_reviewableHITsTime = time();\n        }\n        me.waitForHIT_waitCount = Math.ceil(a.totalNumResults / 100);\n    }\n    me.waitForHIT_callCount++;\n    if (me.waitForHIT_callCount >= me.waitForHIT_waitCount) {\n        if (!me.waitForHIT_reviewableHITs || (time() > me.waitForHIT_reviewableHITsTime + (1000 * 60))) {\n            me.waitForHIT_reviewableHITs = new Set(me.getReviewableHITs());\n            me.waitForHIT_reviewableHITsTime = time();\n        }\n    }\n    if (me.waitForHIT_reviewableHITs) {\n        if (!me.waitForHIT_reviewableHITs[hitId]) {\n            stop();\n        }\n    }\n    var hit = mturk.getHIT(hitId);\n    if (!hit.done) {\n        stop();\n    }\n    verbosePrint(\"hit completed: \" + hitId);\n    return hit;\n}\n"
+				"creationTime" : 1.364505332458E12,
+				"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n",
+				"returnValue" : "2O8EOZFYQS1C5M7W9HIDV4IC90SILU",
+				"returnTime" : 1.364505332674E12,
+				"printOutput" : "created HIT: 2O8EOZFYQS1C5M7W9HIDV4IC90SILU\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
+			},
+			{
+				"creationTime" : 1.364505332678E12,
+				"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n",
+				"returnValue" : "26OAUC26DG67QUIBPK6K3COKA58C5Y",
+				"returnTime" : 1.364505332909E12,
+				"printOutput" : "created HIT: 26OAUC26DG67QUIBPK6K3COKA58C5Y\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
+			},
+			{
+				"creationTime" : 1.364505332915E12,
+				"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n",
+				"returnValue" : "2Y7CGJ2D21O39YIPU3GPVI2K60JC6E",
+				"returnTime" : 1.364505333106E12,
+				"printOutput" : "created HIT: 2Y7CGJ2D21O39YIPU3GPVI2K60JC6E\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
+			},
+			{
+				"creationTime" : 1.364505333109E12,
+				"onceFunc" : "\nfunction () {\n    return mturk.createHITRaw(params);\n}\n",
+				"returnValue" : "27IJG5TYMNCWB4PH9TJSVHX195IIMW",
+				"returnTime" : 1.364505333319E12,
+				"printOutput" : "created HIT: 27IJG5TYMNCWB4PH9TJSVHX195IIMW\n        url: https://workersandbox.mturk.com/mturk/preview?groupId=2U68XMB3Q39ZD4R2N8XT7EVSTHMSHT\n"
 			}
 		]
 	}
 }
 __safetyCounters = {
-	"moneySpent" : 0.4,
-	"hitsCreated" : 1
+	"moneySpent" : 0.1,
+	"hitsCreated" : 5
 }
-// end:fbb6
+// end:37da
