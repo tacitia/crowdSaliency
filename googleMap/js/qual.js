@@ -3,7 +3,7 @@
 	
 		if (userQualified) {
 	    	var sPageURL = window.location.search.substring(1);
-			window.location.replace('template.html?' + sPageURL);
+			window.location.replace('map-sky-test.html?' + sPageURL);
 		}
 	});
 
