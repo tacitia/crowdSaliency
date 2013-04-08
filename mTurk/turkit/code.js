@@ -4,7 +4,7 @@ for (var i = 0; i < 5; ++i) {
     var hitId = mturk.createHIT({
         title : "Navigate large images",
         desc : "Find objects specified in the instruction.",
-        url : "http://crowdvis.cs.brown.edu/crowdSaliency/mTurk/hits/qual.html",
+        url : "http://crowdvis.cs.brown.edu/crowdSaliency/googleMap/qual.html",
         height : 800,
         reward : 0.02,
 	assignments : 1
