@@ -26,10 +26,8 @@ function recordMarkAction(latLng) {
 //    var mouseTrace = "x:" + mouseLoc.x + ",y:" + mouseLoc.y + ",time:" + 0;
     var timeElapsed = currentTime - startTime;
 
-/*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY:
-            mouseLoc.y }; */
-    var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x +
-            ",mouseY:" + mouseLoc.y;
+/*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY: mouseLoc.y }; */
+    var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x + ",mouseY:" + mouseLoc.y;
 
     var markAction = { actionName: "mark", time: currentTime.toString(), timeElapsed: timeElapsed, 
     		mouseTrace: mouseTrace, actionParam: actionString};

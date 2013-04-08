@@ -8,11 +8,18 @@
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="js/turkit.js"></script>
   <script src="js/action.js"></script>
   <script src="js/map-sky-test.js"></script>
 </head>
 <body onload="initialize()">
-    <div id="map-canvas" style="width: 550px; height: 550px; margin-left: auto; margin-right: auto;">
-    </div>
+  <div id="map-canvas" style="width: 550px; height: 550px; margin-left: auto; margin-right: auto;">
+  </div>
+  <form action="." method="GET">
+    <input type="hidden" name="assignmentId" id="assignmentId" value="temp"></input>
+    <div>
+  	  <input type="submit" value="Submit"/>
+	</div>
+  </form>
 </body>
 </html>

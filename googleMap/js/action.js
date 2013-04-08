@@ -5,6 +5,8 @@ var startTime = new Date(); // the start time of a new action
 var userActions = [];
 var oldZoom;
 var oldCenter;
+var workerId = getURLParameter('workerId');
+
 document.onmousemove = recordMouseMovement;
 window.onbeforeunload = postActionData;
 
@@ -24,10 +26,8 @@ function recordMarkAction(latLng) {
 //    var mouseTrace = "x:" + mouseLoc.x + ",y:" + mouseLoc.y + ",time:" + 0;
     var timeElapsed = currentTime - startTime;
 
-/*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY:
-            mouseLoc.y }; */
-    var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x +
-            ",mouseY:" + mouseLoc.y;
+/*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY: mouseLoc.y }; */
+    var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x + ",mouseY:" + mouseLoc.y;
 
     var markAction = { actionName: "mark", time: currentTime.toString(), timeElapsed: timeElapsed, 
     		mouseTrace: mouseTrace, actionParam: actionString};
@@ -54,6 +54,7 @@ function recordZoomAction() {
     var actionString = "loc:" + center + ",oldZoom:" + oldZoom + ",newZoom:" + newZoom;
     var zoomAction = {actionName: "zoom", time: currentTime.toString(), timeElapsed: timeElapsed, 
             mouseTrace: mouseTrace, actionParam: actionString};
+    console.log(zoomAction);
     userActions.push(zoomAction);
 
     // update conditions
@@ -82,14 +83,14 @@ function recordPanAction() {
 }
 
 function postActionData() {
-    console.log("Posting data...");
-    
+	var id = (workerId === undefined) ? userID : workerId;
+	
     $.ajax({
         type: "POST",
-        url: "../googleMap/php/storeActionData.php",
-        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: userID},
+        url: "php/storeActionData.php",
+        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: id},
         error: function(data) {
-            console.log("Failed");
+       console.log("Failed");
             console.log(data);
         },
         success: function(data) {
@@ -100,4 +101,13 @@ function postActionData() {
     });
 }
 
-
+function getURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+}
