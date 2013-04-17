@@ -1,20 +1,34 @@
 <html>
 <head>
-  <title>MTurk Task</title>
+  <title>MTurk Survey</title>
   <link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Sanchez' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <link rel="stylesheet" href="css/qual-style.css" type="text/css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" type="text/css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="js/qual.js"></script>
+<!--  <script src="js/qual.js"></script> -->
 </head>
 <body>
   
-  <form action="." method="GET">
-    <input type="hidden" name="assignmentId" id="assignmentId" value="temp"></input>
-    <div>
-  	  <input type="submit" value="Submit"/>
-	</div>
-  </form>
-
+  <div id="main">
+    <p><b>When answering the following questions, please input numerical values only.</b></p>
+    <form action="php/storeQualResult.php" method="post">
+      <fieldset class="question">
+    	<p><b>Q1:</b> A bat and a ball cost $1.10 in total. The bat costs $1 more than the ball. How much does the ball cost?</p>
+		<input class="input-mini" type="text" name="q1answer" placeholder=""><span> dollars</span>
+      </fieldset>
+      <fieldset class="question">
+    	<p><b>Q2:</b> If it takes five machines five minutes to make five widgets, how long does it take 100 machines to make 100 widgets?</p>
+		<input class="input-mini" type="text" name="q2answer" placeholder=""><span> minutes</span>
+      </fieldset>
+      <fieldset class="question">
+		<p><b>Q3:</b> In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?<p>
+		<input class="input-mini" type="text" name="q3answer" placeholder=""><span> days</span>
+      </fieldset>
+      <div id="submit_container">
+	    <button id="submit_btn" type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+  
 </body>
 </html>

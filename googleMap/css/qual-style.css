@@ -1,0 +1,17 @@
+body {
+	background-image:url('binding_light.png');
+}
+
+#main {
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	background-color:white;
+	padding: 20px;
+}
+
+#submit_container {
+	width:100%;
+	text-align:center;
+}
