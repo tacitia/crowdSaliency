@@ -1,5 +1,5 @@
 body {
-  background: #666;
+  background: #eee;
 }
 
 .container-narrow {
@@ -7,14 +7,43 @@ body {
   max-width: 700px;
 }
 
-.headerRegion, .mainTextBlock {
-  box-shadow: 0px 0px 15px 5px #555;
-  padding: 10px 15px;
-  background: #eee;
+.greenBand {
+  background-color: #8ec549;
+  padding: 36px 0 72px 0;
+  position: relative;
+  width: 100%;
+  z-index:2;
 }
-.headerRegion {
-  margin: 0;
-}
+
 .mainTextBlock {
-    margin-top: 36px;
+  background: #fff;
+  padding: 10px 15px;
+}
+
+.nav ul li {
+  font-size: 24px;
+  list-style: none;
+}
+.nav ul li a {
+  color: #FFF;
+}
+.nav ul li a:hover {
+  color: #CCC;
+  text-decoration: none;
+}
+.navBand {
+  background: #363636;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  height: 40px;
+  margin: 0;
+  padding: 8px 0 0 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.rounded {
+  border: 1px solid #7da7b4;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
