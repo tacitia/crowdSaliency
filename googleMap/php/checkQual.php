@@ -1,6 +1,5 @@
 <? 
     $workerId = $_POST['workerId']; 
-    echo var_dump($workerId);
     $hasWorker = 0;
 
     $con = mysql_connect("localhost", "root", "goredsox");
@@ -21,9 +20,6 @@
     
     while ($row = mysql_fetch_array($result)) {
         $currWorkerId = $row["worker_id"];
-        echo var_dump($currWorkerId);
-        echo var_dump($workerId);
-        echo var_dump($workerId == $currWorkerId);
         if ($currWorkerId == $workerId) {
         	$hasWorker = 1;
         }
@@ -31,6 +27,6 @@
  
 //    echo $query;
     echo mysql_error($con) . "\n";
-//    echo $hasWorker;              
+    echo $hasWorker;              
     mysql_close($con);
 ?>

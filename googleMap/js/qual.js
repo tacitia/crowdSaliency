@@ -34,7 +34,6 @@
 	}
 
 	function checkQual() {
-		console.log(workerId);
     	$.ajax({
         	type: "POST",
      	    url: "php/checkQual.php",
@@ -43,11 +42,12 @@
        			console.log("Failed");
             	console.log(data);
         	},
-        	success: function(data) {
+        	success: function(hasWorkerProfile) {
             	console.log("Success");
-           	    console.log(data);
-//		    	var sPageURL = window.location.search.substring(1);
-//				window.location.replace('map-sky-test.html?' + sPageURL);
+           	    if (hasWorkerProfile) {
+			    	var sPageURL = window.location.search.substring(1);
+					window.location.replace('map-sky-test.html?' + sPageURL);
+				}
             },
             async: false
     	});
