@@ -46,6 +46,9 @@
             	console.log("Success");
             	console.log(workerId);
             	console.log(hasWorkerProfile);
+            	console.log(hasWorkerProfile == '0');
+            	console.log(hasWorkerProfile == 0);
+            	console.log(hasWorkerProfile == false);
            	    if (hasWorkerProfile) {
            	    	console.log("???");
 //			    	var sPageURL = window.location.search.substring(1);
