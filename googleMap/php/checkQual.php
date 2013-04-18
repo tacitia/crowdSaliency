@@ -20,6 +20,8 @@
     
     while ($row = mysql_fetch_array($result)) {
         $currWorkerId = $row["worker_id"];
+        echo $currWorkerId;
+        echo $workerId;
         if ($currWorkerId == $workerId) {
         	$hasWorker = 1;
         }
