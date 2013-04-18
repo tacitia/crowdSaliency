@@ -14,10 +14,14 @@
 
     mysql_select_db("crowdSaliency", $con);
     
-    mysql_query("
+    $query = "
         INSERT INTO WorkerProfile (`worker_id`, `crt_1`, `crt_2`, `crt_3`)
         VALUES ($workerId, $q1answer, $q2answer, $q3answer);
-    ", $con);
+    ";
+    
+    echo $query;
+    
+    mysql_query($query, $con);
 
     echo mysql_error($con) . "\n";
               
