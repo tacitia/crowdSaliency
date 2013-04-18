@@ -2,7 +2,7 @@
     $workerId = $_POST['workerId']; 
     $hasWorker = false;
 
-    $con = mysql_connect("localhost", "root", "");
+    $con = mysql_connect("localhost", "root", "goredsox");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
     }
