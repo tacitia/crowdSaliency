@@ -1,6 +1,6 @@
 <? 
     $workerId = $_POST['workerId']; 
-    $hasWorker = false;
+    $hasWorker = False;
 
     $con = mysql_connect("localhost", "root", "goredsox");
     if (!$con) {
@@ -21,7 +21,7 @@
     while ($row = mysql_fetch_array($result)) {
         $currWorkerId = $row["worker_id"];
         if ($currWorkerId == $workerId) {
-        	$hasWorker = true;
+        	$hasWorker = True;
         }
     }
  
