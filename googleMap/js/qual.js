@@ -44,15 +44,9 @@
         	},
         	success: function(hasWorkerProfile) {
             	console.log("Success");
-            	console.log(workerId);
-            	console.log(hasWorkerProfile);
-            	console.log(hasWorkerProfile == '0');
-            	console.log(hasWorkerProfile == 0);
-            	console.log(hasWorkerProfile == false);
-           	    if (hasWorkerProfile) {
-           	    	console.log("???");
-//			    	var sPageURL = window.location.search.substring(1);
-//					window.location.replace('map-sky-test.html?' + sPageURL);
+           	    if (hasWorkerProfile == 1) {
+			    	var sPageURL = window.location.search.substring(1);
+					window.location.replace('map-sky-test.html?' + sPageURL);
 				}
             },
             async: false
