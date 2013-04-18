@@ -1,5 +1,5 @@
 <? 
-	$workerId = "." . $_POST['workerId'] . ".";
+	$workerId = "'" . $_POST['workerId'] . "'";
     $q1answer = $_POST['q1answer']; 
     $q2answer= $_POST['q2answer'];
     $q3answer = $_POST['q3answer'];
