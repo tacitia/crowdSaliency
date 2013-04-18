@@ -36,7 +36,7 @@
 	function checkQual() {
 		console.log(workerId);
     	$.ajax({
-        	type: "GET",
+        	type: "POST",
      	    url: "php/checkQual.php",
        		data: {workerId: workerId},
         	error: function(data) {
