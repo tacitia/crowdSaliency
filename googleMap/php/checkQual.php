@@ -1,5 +1,6 @@
 <? 
     $workerId = $_POST['workerId']; 
+    echo var_dump($workerId);
     $hasWorker = 0;
 
     $con = mysql_connect("localhost", "root", "goredsox");
