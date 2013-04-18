@@ -1,4 +1,4 @@
-	var workerId;
+	var workerId = 'test';
 	
 	$(document).ready(function() {
 		var workerId = getURLParameter('workerId');
