@@ -47,6 +47,7 @@
             	console.log(workerId);
             	console.log(hasWorkerProfile);
            	    if (hasWorkerProfile) {
+           	    	console.log("???");
 //			    	var sPageURL = window.location.search.substring(1);
 //					window.location.replace('map-sky-test.html?' + sPageURL);
 				}
