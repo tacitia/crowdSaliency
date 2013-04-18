@@ -20,9 +20,9 @@
     
     while ($row = mysql_fetch_array($result)) {
         $currWorkerId = $row["worker_id"];
-        echo $currWorkerId;
-        echo $workerId;
-        echo $workerId == $currWorkerId;
+        echo var_dump($currWorkerId);
+        echo var_dump($workerId);
+        echo var_dump($workerId == $currWorkerId);
         if ($currWorkerId == $workerId) {
         	$hasWorker = 1;
         }
