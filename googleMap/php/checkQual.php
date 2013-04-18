@@ -22,6 +22,7 @@
         $currWorkerId = $row["worker_id"];
         echo $currWorkerId;
         echo $workerId;
+        echo $workerId == $currWorkerId;
         if ($currWorkerId == $workerId) {
         	$hasWorker = 1;
         }
