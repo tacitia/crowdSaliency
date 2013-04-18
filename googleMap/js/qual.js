@@ -1,5 +1,5 @@
 	var workerId = 'test';
-	var isTest = true;
+	var isTest = false;
 	
 	$(document).ready(function() {
 		if (!isTest) {
