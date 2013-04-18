@@ -30,6 +30,6 @@
  
 //    echo $query;
     echo mysql_error($con) . "\n";
-    echo $hasWorker;              
+//    echo $hasWorker;              
     mysql_close($con);
 ?>
