@@ -44,9 +44,11 @@
         	},
         	success: function(hasWorkerProfile) {
             	console.log("Success");
+            	console.log(workerId);
+            	console.log(hasWorkerProfile);
            	    if (hasWorkerProfile) {
-			    	var sPageURL = window.location.search.substring(1);
-					window.location.replace('map-sky-test.html?' + sPageURL);
+//			    	var sPageURL = window.location.search.substring(1);
+//					window.location.replace('map-sky-test.html?' + sPageURL);
 				}
             },
             async: false
