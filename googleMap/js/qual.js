@@ -3,16 +3,12 @@
 	
 	$(document).ready(function() {
 		if (!isTest) {
-			workerId_temp = getURLParameter('workerId');
+			workerId = getURLParameter('workerId');
 		}
-		var userQualified = false;
+
 		checkQual();
+
 		$('#submit_btn').click(storeQualResult);
-	
-		if (userQualified) {
-	    	var sPageURL = window.location.search.substring(1);
-			window.location.replace('map-sky-test.html?' + sPageURL);
-		}
 	});
 	
 	function storeQualResult() {
@@ -49,7 +45,8 @@
         	success: function(data) {
             	console.log("Success");
            	    console.log(data);
-                return data;
+//		    	var sPageURL = window.location.search.substring(1);
+//				window.location.replace('map-sky-test.html?' + sPageURL);
             },
             async: false
     	});

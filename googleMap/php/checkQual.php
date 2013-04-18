@@ -7,7 +7,7 @@
         die('Could not connect: ' . mysql_error());
     }
     else {
-        echo 'Connection successful' . "\n";
+//        echo 'Connection successful' . "\n";
     }
 
     mysql_select_db("crowdSaliency", $con);
@@ -20,7 +20,6 @@
     
     while ($row = mysql_fetch_array($result)) {
         $currWorkerId = $row["worker_id"];
-        echo $currWorkerId;
         if ($currWorkerId == $workerId) {
         	$hasWorker = true;
         }
