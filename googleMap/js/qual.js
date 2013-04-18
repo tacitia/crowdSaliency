@@ -17,7 +17,7 @@
 		var q3answer = $('[name="q3answer"]')[0].value;
 		$.ajax({
 			type: "POST",
-			url: "php/storeQualResult",
+			url: "php/storeQualResult.php",
 			data: {workerId: workerId, q1answer: q1answer, q2answer: q2answer, q3answer: q3answer},
 		    error: function(data) {
        			console.log("Failed");
