@@ -27,7 +27,6 @@
  
 //    echo $query;
     echo mysql_error($con) . "\n";
-              
+    echo $hasWorker;              
     mysql_close($con);
-    return $hasWorker;
 ?>
