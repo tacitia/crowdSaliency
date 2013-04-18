@@ -34,6 +34,7 @@
 	}
 
 	function checkQual() {
+		console.log(workerId);
     	$.ajax({
         	type: "GET",
      	    url: "php/checkQual.php",
