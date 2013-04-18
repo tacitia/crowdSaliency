@@ -1,8 +1,12 @@
 	var workerId = 'test';
+	var isTest = true;
 	
 	$(document).ready(function() {
-		var workerId = getURLParameter('workerId');
+		if (!isTest) {
+			workerId_temp = getURLParameter('workerId');
+		}
 		var userQualified = false;
+		checkQual();
 		$('#submit_btn').click(storeQualResult);
 	
 		if (userQualified) {
@@ -35,7 +39,7 @@
 
 	function checkQual() {
     	$.ajax({
-        	type: "POST",
+        	type: "GET",
      	    url: "php/checkQual.php",
        		data: {workerId: workerId},
         	error: function(data) {

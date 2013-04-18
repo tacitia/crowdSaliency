@@ -1,5 +1,6 @@
 <? 
     $workerId = $_POST['workerId']; 
+    $hasWorker = false;
 
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
@@ -12,17 +13,22 @@
     mysql_select_db("crowdSaliency", $con);
           
     $result = mysql_query("
-        SELECT * FROM Qualified;
+        SELECT worker_id FROM WorkerProfile;
     ", $con);
     
     echo mysql_error($con) . "\n";
     
     while ($row = mysql_fetch_array($result)) {
-        $sessionId = $row["session_id"];
+        $currWorkerId = $row["worker_id"];
+        echo $currWorkerId;
+        if ($currWorkerId == $workerId) {
+        	$hasWorker = true;
+        }
     }
  
 //    echo $query;
     echo mysql_error($con) . "\n";
               
     mysql_close($con);
+    return $hasWorker;
 ?>

@@ -19,11 +19,8 @@
         VALUES ($workerId, $q1answer, $q2answer, $q3answer);
     ";
     
-    echo $query;
     
     mysql_query($query, $con);
-
     echo mysql_error($con) . "\n";
-              
     mysql_close($con);
 ?>
