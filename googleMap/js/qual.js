@@ -2,10 +2,15 @@
 	var isTest = false;
 	
 	$(document).ready(function() {
-		if (!isTest) {
-			workerId = getURLParameter('workerId');
+		// Redirect immediately if in preview mode
+		if (params.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE") {
+			redirectToTask();
 		}
-
+		
+		// Otherwise, get worker Id and see if this worker has taken the survey before	
+		if (!isTest) {
+			workerId = params.workerId;
+		}
 		checkQual();
 
 		$('#submit_btn').click(storeQualResult);
@@ -25,8 +30,7 @@
         	},
         	success: function(data) {
             	console.log("Success");
-           	    console.log(data);
-                return data;
+           	    redirectToTask();
             },
             async: false	
 			
@@ -45,8 +49,7 @@
         	success: function(hasWorkerProfile) {
             	console.log("Success");
            	    if (hasWorkerProfile == 1) {
-			    	var sPageURL = window.location.search.substring(1);
-					window.location.replace('map-sky-test.html?' + sPageURL);
+					redirectToTask();
 				}
             },
             async: false
@@ -62,6 +65,11 @@
             	return sParameterName[1];
         	}
     	}
+	}
+	
+	function redirectToTask() {
+		var sPageURL = window.location.search.substring(1);
+		window.location.replace('map-sky-test.html?' + sPageURL);
 	}
 	
 	//TODO: add a function that validates user qual input
