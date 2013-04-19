@@ -3,6 +3,7 @@
 	
 	$(document).ready(function() {
 		// Redirect immediately if in preview mode
+		// "params" is defined in turkit.js
 		if (params.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE") {
 			redirectToTask();
 		}
