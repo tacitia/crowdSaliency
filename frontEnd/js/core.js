@@ -3,3 +3,8 @@ $("#btnGetStarted").click(function() {
          scrollTop: $("#sectionGetStarted").offset().top
      }, 500);
  });
+
+$("#btnTour").click(function(){
+  $("#divHome").hide();
+  $("#divTour").show();
+}); 
