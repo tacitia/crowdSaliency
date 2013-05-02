@@ -18,12 +18,16 @@ COMPONENTS = $(FRONT_END) $(HIT_MANAGER)
 hello:
 	@echo Use 'make install' to install all \
 	components to $(INSTALLDIR)
+	
+target-dir:
+	mkdir -p $(INSTALLDIR)
 
 # install all SearchParty components
-install: install-all
+install: target-dir install-all
 
 install-all:
 	for component in $(COMPONENTS) ; do \
+		echo cp -r $$component $(INSTALLDIR) ; \
 		cp -r $$component $(INSTALLDIR) ; \
 	done
 	
