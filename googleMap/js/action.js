@@ -27,7 +27,7 @@ function recordMarkAction(latLng) {
     var timeElapsed = currentTime - startTime;
 
 /*    var actionParameter = { lat: latLng.lat(), lng: latLng.lng(), mouseX: mouseLoc.x, mouseY: mouseLoc.y }; */
-    var actionString = "lat:" + latLng.lat() + ",lng:" + latLng.lng() + ",mouseX:" + mouseLoc.x + ",mouseY:" + mouseLoc.y;
+    var actionString = "loc:" + latLng + ",mouseX:" + mouseLoc.x + ",mouseY:" + mouseLoc.y;
 
     var markAction = { actionName: "mark", time: currentTime.toString(), timeElapsed: timeElapsed, 
     		mouseTrace: mouseTrace, actionParam: actionString};
