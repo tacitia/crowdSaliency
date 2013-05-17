@@ -11,6 +11,14 @@ body {
   max-width: 700px;
 }
 
+.grayBand {
+  background-color: #cccccc;
+  padding: 36px 0 72px 0;
+  position: relative;
+  width: 100%;
+  z-index:2;
+}
+
 .greenBand {
   background-color: #8ec549;
   padding: 36px 0 72px 0;
