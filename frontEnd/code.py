@@ -3,13 +3,16 @@ import view, config
 from view import render
 
 urls = (
+    '/', 'index',
     '/request', 'Request'
 )
 
 class index:
     def GET(self):
-        return render.base(view.listing())
-        
+        return render.base(render.request(), 'SearchParty')
+        #return render.base(view.listing())
+
+'''        
     def POST(self):
         x = web.input(myfile={})
         web.debug(x['myfile'].filename) # This is the filename
@@ -20,6 +23,7 @@ class index:
         f = open('../' + x['myfile'].filename, 'w')
         f.write(x['myfile'].value)
         raise web.seeother('/upload')
+'''
         
 if __name__ == "__main__":
     app = web.application(urls, globals())
