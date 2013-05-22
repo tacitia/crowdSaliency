@@ -15,30 +15,33 @@
     <div class="nav-collapse collapse">
       <div class="nav">
         <ul>
-          <li><a href="#">NameOfService</a></li>
+          <li><a href="#">SearchParty</a></li>
         </ul>
       </div><!-- end nav -->
     </div><!-- end nav-collapse collapse -->
   </div><!-- end container-narrow -->
 </div><!-- end navBand -->
 
-<div class="greenBand">
+<div class="grayBand">
   <div class="container-narrow" id="divHome">
     <div class="mainTextBlock rounded">
       <div class="row-fluid">
-        <div class="span6">
-          <h1>The most important thing</h1>
-          <p>Hello, world. This will be a high-level description of our service. Literally messenger bag banjo DIY meggings fingerstache irony aesthetic, odd future PBR vinyl VHS twee. Readymade salvia actually forage, farm-to-table blue bottle disrupt 3 wolf moon leggings fashion axe ugh mumblecore. Tumblr brunch small batch williamsburg, pop-up dreamcatcher hashtag biodiesel organic direct trade farm-to-table 3 wolf moon.</p>
-          <p>Selfies fixie bushwick meggings art party, portland chambray banh mi keytar plaid. Viral american apparel banh mi deep v, synth keffiyeh cray kogi neutra keytar gastropub plaid fanny pack organic you probably haven't heard of them. Banjo banh mi swag, literally meh keffiyeh jean shorts. Ennui wayfarers sriracha, intelligentsia master cleanse dreamcatcher scenester.</p>
+        <div class="span12">
+          <h1>Find interesting parts of your large image, quickly</h1>
+          <p>Need help searching for interesting objects or regions in your large images?  Tired of investing your own person-hours looking at pictures when you could be working on other things?</p>
+          <p>SearchParty is a web service that recruits online workers on Amazon Mechanical Turk to help find things in large images.  You give us your image and a hint at what's interesting in it, and we'll recruit workers and notify you when we've searched your image.</p>
+          <p></p>
           <hr />
           <button class="btn" id="btnTour" href="#">Take a tour</button>
           <button class="btn btn-success" id="btnGetStarted" href="#">Get started</button>
           <hr />
         </div>
+        <!--
         <div class="span6">
           <p>An image will eventually go here, but for now it is just me. Maybe an explorer surveying a landscape?</p>
           <p>Perhaps on the bottom also have a gallery of screenshots of what the service looks like in action</p>
         </div>
+        -->
       </div>
     </div><!-- end mainTextBlock -->
   </div><!-- end divHome container-narrow -->
@@ -50,13 +53,15 @@
       </div><!-- End nav to home div-->
       <div class="row-fluid">
         <div class="span8">
-          <h1>What's Inside</h1>
-          <p>Hello, world. This will be a high-level description of our service. Literally messenger bag banjo DIY meggings fingerstache irony aesthetic, odd future PBR vinyl VHS twee. Readymade salvia actually forage, farm-to-table blue bottle disrupt 3 wolf moon leggings fashion axe ugh mumblecore. Tumblr brunch small batch williamsburg, pop-up dreamcatcher hashtag biodiesel organic direct trade farm-to-table 3 wolf moon.</p>
+          <h1>How it works?</h1>
+          <p>When you upload an image to SearchParty, we automatically create search tasks and distribute them to searchers on Amazon Mechanical Turk.  Each searcher explores through your image independently.  After lots of searchers have participated, SearchParty aggregates findings from these searches into a heat map that shows you interesting regions.</p>
           <hr />
           <hr />
         </div>
         <div class="span4">
-          <p>Screenshots should go here</p>
+          <p>[diagram goes here]</p>
+          <p>[screenshot goes here]</p>
+          <p>[screenshot2 goes here]</p>
         </div>
       </div>
     </div><!-- end mainTextBlock -->
@@ -69,23 +74,32 @@
       <h1>Let's get started!</h1>
       <hr />
     </div><!-- instruction tile-->
+    
     <div class="instructionTile">
-      <h4>Step 1: Upload your file</h4>
+      <h4>Step 1: Give us your email address</h4>
+      <p>We'll send you a confirmation email and let you know when the search is done.  We will never share your email address with anyone.</p>
+      <textarea rows="1" class="span6" placeholder="your_email@example.com"></textarea>
+    </div><!-- instruction tile-->
+    
+    <div class="instructionTile">
+      <h4>Step 2: Upload your big image (.png, .jpg)</h4>
       <button class="btn" type="submit">Select File</button>
     </div><!-- instruction tile-->
 
     <div class="instructionTile">
-      <h4>Step 2: Write your task instruction</h4>
-      <textarea rows="3" class="span6" placeholder="Please locate the man wearing a red and white striped hat and sweater, blue jeans, and glasses."></textarea>
+      <h4>Step 3: Tell searchers what to look for</h4>
+      <p>This is what searchers will see.</p>
+      <textarea rows="3" class="span6" placeholder="For example, &quot;Please locate the man wearing a red and white striped hat and sweater, blue jeans, and glasses.&quot;"></textarea>
     </div><!-- instruction tile-->
 
     <div class="instructionTile">
-      <h4>Step 3: Upload an example image of a correct solution</h4>
+      <p>If you have a sample image of your interesting object, upload it here and we'll show it to the searchers as an example.</p>
+      <h4>Step 4: Upload an example image of a correct solution</h4>
       <button class="btn" type="submit">Select File</button>
     </div><!-- instruction tile-->
 
     <div class="instructionTile">
-      <h4>Step 4: File your question</h4>
+      <h4>Step 5: Start your search!</h4>
       <p>Once you're satisfied your information is correct, press submit information to upload your task to our servers. You'll get to confirm your upload on the following page</p>
       <button class="btn" type="submit">Submit information</button>
     </div><!-- instruction tile-->
