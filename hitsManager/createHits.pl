@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use Net::Amazon::MechanicalTurk;
 use Net::Amazon::MechanicalTurk::IOUtil;
+use URI::Escape;
+
 
 # These variables should later be passed in as program parameters or derived based on parameters.
 my $rewardPerHit = 0.00;
@@ -10,10 +12,12 @@ my $lifetimeInMinutes = 60 * 24 * 7;
 my $durationInMinutes = 60;
 my $maxAssigns = 1;
 my $requestId = 'crowdSaliency_007';
-my $url = 'http://crowdvis.cs.brown.edu';
+my $base_url = 'http://crowdvis.cs.brown.edu/crowdSaliency/googleMap/map-sky-test.html';
+my $request_path = uri_escape('test/sky_tiles_1k');
+my $full_url = $base_url . '?' . 'requestpath=' . $request_path;
 my $question = '<ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">'
 				. '<ExternalURL>'
-				. $url
+				. $full_url
 				. '</ExternalURL>'
 				. '<FrameHeight>800</FrameHeight>'
 				. '</ExternalQuestion>';

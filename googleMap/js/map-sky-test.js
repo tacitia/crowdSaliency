@@ -16,6 +16,9 @@
     	"sky":2
     };
     
+    var params = getURLParams();
+    console.log(params);
+    
     // action.js assumes the existence of the three vars
     var mapType = mapTypeEnum["sky"];
 	  var uiVer = 1; //Not sure what different ui versions we will have
