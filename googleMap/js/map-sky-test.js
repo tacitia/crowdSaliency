@@ -16,7 +16,7 @@
     	"sky":2
     };
     
-    var imageDir = "test/sky_tiles_1k";    
+    var imageDir = "sky_tiles_1k";    
     
     var params = getURLParams();
     console.log(params);	
@@ -46,7 +46,7 @@
           var y = "y"+normalizedCoord.y;
           var x = "x"+normalizedCoord.x;
           var z = "z"+zoom;
-          var url = "data/" + imageDir + "/"+z+"-"+x+"-"+y+".JPG";
+          var url = "data/test/" + imageDir + "/"+z+"-"+x+"-"+y+".JPG";
           //var url = "data/test/tiles/"+z+"-"+x+"-"+y+".JPG";
           
           console.log("coord: " + coord);

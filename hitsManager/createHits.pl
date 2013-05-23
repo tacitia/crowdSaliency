@@ -5,28 +5,36 @@ use Net::Amazon::MechanicalTurk;
 use Net::Amazon::MechanicalTurk::IOUtil;
 use URI::Escape;
 
+# incoming parameters
+my @params = split(';', $ARGV[0]);
 
-# These variables should later be passed in as program parameters or derived based on parameters.
-my $rewardPerHit = 0.00;
-my $lifetimeInMinutes = 60 * 24 * 7;
-my $durationInMinutes = 60;
-my $maxAssigns = 1;
-my $requestId = 'crowdSaliency_007';
-my $base_url = 'http://crowdvis.cs.brown.edu/crowdSaliency/googleMap/map-sky-test.html';
-my $request_path = uri_escape('test/sky_tiles_1k');
-my $full_url = $base_url . '?' . 'requestpath=' . $request_path;
+# Required parameters
+my $requestId = $params[0];
+
+# Optional parameters
+my $rewardPerHit = ($params[3] eq 'default') ? 0.00 : $params[3];
+my $autoApprovalInMinutes = ($params[4] eq 'default') ? 60 * 24 : $params[4];
+my $lifetimeInMinutes = ($params[5] eq 'default') ? 60 * 24 * 7 : $params[5];
+my $durationInMinutes = ($params[6] eq 'default') ? 60 : $params[6];
+my $maxAssigns = ($params[7] eq 'default') ? 1 : $params[7];
+
+
+# Fixed parameters
+my $hitTitle = 'Image Saliency';
+my $hitDescription = 'In this HIT, you will be asked to search for a specific type of objects by exploraing a large image.';
+my $hitKeywords = 'image, exploration, citizen science';
+my $baseUrl = 'http://crowdvis.cs.brown.edu/crowdSaliency/googleMap/map-sky-test.html';
+
+# parameters derived on top of basic inputs
+my $requestPath = uri_escape($requestId);
+my $fullUrl = $baseUrl . '?' . 'requestpath=' . $requestPath;
 my $question = '<ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">'
 				. '<ExternalURL>'
-				. $full_url
+				. $fullUrl
 				. '</ExternalURL>'
 				. '<FrameHeight>800</FrameHeight>'
 				. '</ExternalQuestion>';
 
-# These variables are probably going to be the same for all our hits.
-my $hitTitle = 'Image Saliency';
-my $hitDescription = 'In this HIT, you will be asked to search for a specific type of objects by exploraing a large image.';
-my $hitKeywords = 'image, exploration, citizen science';
-my $autoApprovalInMinutes = 60 * 24;
 
 my $mturk = Net::Amazon::MechanicalTurk->new;
 
