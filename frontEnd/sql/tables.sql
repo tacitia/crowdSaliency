@@ -1,6 +1,7 @@
-CREATE TABLE items (
-    id serial primary key,
-    author_id int references users,
-    body text,
-    created timestamp default (current_timestamp at time zone 'utc')
+CREATE TABLE requests (
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    contact VARCHAR(32) NOT NULL,
+    instructions TEXT NOT NULL,
+    created_on TIMESTAMP default CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
 );

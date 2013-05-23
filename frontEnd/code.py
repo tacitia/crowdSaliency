@@ -1,5 +1,6 @@
 import web
-import view, config
+import view, config, model
+
 from view import render
 
 urls = (
@@ -8,22 +9,41 @@ urls = (
 )
 
 class index:
-    def GET(self):
+    def GET(self):        
         return render.base(render.request(), 'SearchParty')
         #return render.base(view.listing())
-
-'''        
+       
     def POST(self):
-        x = web.input(myfile={})
-        web.debug(x['myfile'].filename) # This is the filename
-        #web.debug(x['myfile'].value) # This is the file contents
-        #web.debug(x['myfile'].file.read()) # Or use a file(-like) object
+        web.debug('Post request received')
 
-        # Try writing the uploaded file to this server
-        f = open('../' + x['myfile'].filename, 'w')
-        f.write(x['myfile'].value)
-        raise web.seeother('/upload')
-'''
+class Request:
+    def GET(self):
+        print 'Loading request page'
+        return render.base(render.request(), 'SearchParty')
+    
+    def POST(self):
+        print 'Posting request page'
+        
+        upload = web.input(bigImage={}, sampleImage={})
+        print (upload.contact, upload.instructions, 
+                upload.bigImage.filename, upload.sampleImage.filename)
+        
+        if upload['contact'] and upload['instructions'] and upload.bigImage.filename:
+            # write fields to db
+            model.insert_request(upload['contact'], upload['instructions'])
+            
+            # write file to server
+            filepath = upload.bigImage.filename.replace('\\','/') # correct Windows-style paths
+            filename = filepath.split('/')[-1] # grab the filename with extension
+            model.write_file(filename, '..', upload.bigImage.file)
+            
+            # write sample image to server IF provided
+            if upload.sampleImage.filename:
+                filepath = upload.sampleImage.filename.replace('\\','/') # correct Windows-style paths
+                filename = filepath.split('/')[-1] # grab the filename with extension
+                model.write_file(filename, '..', upload.sampleImage.file)
+            
+        raise web.seeother('/request')
         
 if __name__ == "__main__":
     app = web.application(urls, globals())
