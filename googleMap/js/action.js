@@ -84,11 +84,13 @@ function recordPanAction() {
 
 function postActionData() {
 	var id = (workerId === undefined) ? userID : workerId;
+	var rid = getURLParameter('requesetpath');
+	rid = (rid === undefined) ? 'sky_tiles_1k' : rid;
 	
     $.ajax({
         type: "POST",
         url: "php/storeActionData.php",
-        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: id},
+        data: {actionData: userActions, sessionLength: (new Date() - sessionStartTime) / 1000, mapType: mapType, uiVer: uiVer, userID: id, requestID: rid},
         error: function(data) {
        console.log("Failed");
             console.log(data);

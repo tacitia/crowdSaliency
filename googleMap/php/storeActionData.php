@@ -4,6 +4,7 @@
     $mapType = $_POST['mapType'];
     $uiVer = $_POST['uiVer'];
     $userID = "'" . $_POST['userID'] . "'";
+    $requestID = "'" . $_POST['requestID'] . "'";
 
     $con = mysql_connect("localhost", "root", "goredsox");
     if (!$con) {
@@ -16,8 +17,8 @@
     mysql_select_db("crowdSaliency", $con);
     
     mysql_query("
-        INSERT INTO Session (duration, turker_id, map_type, ui_version)
-        VALUES ($sessionLength, $userID, $mapType, $uiVer);
+        INSERT INTO Session (duration, turker_id, map_type, ui_version, request_id)
+        VALUES ($sessionLength, $userID, $mapType, $uiVer, $requestID);
     ", $con);
 
     echo mysql_error($con) . "\n";
