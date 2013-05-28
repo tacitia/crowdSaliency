@@ -18,7 +18,7 @@
     
     mysql_query("
         INSERT INTO Session (duration, turker_id, map_type, ui_version, request_id)
-        VALUES ($sessionLength, $userID, $mapType, $uiVer, $requestID);
+        VALUES ($sessionLength, $userID, $mapType, $uiVer, 1);
     ", $con);
 
     echo mysql_error($con) . "\n";
