@@ -5,7 +5,7 @@
     $uiVer = $_POST['uiVer'];
     $userID = "'" . $_POST['userID'] . "'";
 
-    $con = mysql_connect("localhost", "root", "");
+    $con = mysql_connect("localhost", "root", "goredsox");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
     }
