@@ -16,14 +16,14 @@
     mysql_select_db("crowdSaliency", $con);
     
     mysql_query("
-        INSERT INTO General (duration, user_id, map_type, ui_version)
+        INSERT INTO Session (duration, turker_id, map_type, ui_version)
         VALUES ($sessionLength, $userID, $mapType, $uiVer);
     ", $con);
 
     echo mysql_error($con) . "\n";
           
     $result = mysql_query("
-        SELECT session_id FROM General ORDER BY session_id DESC LIMIT 1;
+        SELECT session_id FROM Session ORDER BY session_id DESC LIMIT 1;
     ", $con);
     
     echo mysql_error($con) . "\n";
