@@ -1,5 +1,5 @@
 import web
-import db
+import model
 import config
 
 t_globals = dict(
