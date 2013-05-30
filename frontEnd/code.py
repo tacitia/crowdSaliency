@@ -30,12 +30,16 @@ class Request:
         
         if upload['contact'] and upload['instructions'] and upload.bigImage.filename:
             # write fields to db
-            model.insert_request(upload['contact'], upload['instructions'])
+            uid = model.insert_request(upload['contact'], upload['instructions'])
+            print "New request uid: ", uid
             
             # write file to server
             filepath = upload.bigImage.filename.replace('\\','/') # correct Windows-style paths
             filename = filepath.split('/')[-1] # grab the filename with extension
-            model.write_file(filename, '..', upload.bigImage.file)
+            
+            store = config.request_store
+            write_path = model.mkdir_storage_unless_exists(store, uid)
+            model.write_file(filename, write_path, upload.bigImage.file)
             
             # write sample image to server IF provided
             if upload.sampleImage.filename:
