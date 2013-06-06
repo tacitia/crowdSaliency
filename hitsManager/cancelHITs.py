@@ -15,6 +15,6 @@ if requestId is 'none':
 	sys.exit()
 	
 var = requestId
-pipe = subprocess.Popen(["perl", "./cancelHits.pl", var], stdin=subprocess.PIPE)
+pipe = subprocess.Popen(["perl", "./cancelHITs.pl", var], stdin=subprocess.PIPE)
 pipe.wait()
 pipe.stdin.close()
