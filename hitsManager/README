@@ -1,0 +1,5 @@
+This directory contains a python wrapper for posting Amazon Mechanical Turk HITs.
+HITs are posted using the perl command-line tools for MTurk.
+
+Dependencies:
+- install Mechanical Turk perl SDK (http://sourceforge.net/projects/mturksdk-perl/)
