@@ -1,28 +1,28 @@
 (function(util, $, undefined) {
 	var params = undefined;
 	
-	var getTurkerID = function() {
+	util.getTurkerID = function() {
 		if (params === undefined) { params = getURLParams(); }
 		return params.workerId;	
 	}
 	
-	var getAssignmentID = function() {
+	util.getAssignmentID = function() {
 		if (params === undefined) { params = getURLParams(); }
 		return params.assignmentId;
 	}
 
-	var getHitID = function() {
+	util.getHitID = function() {
 		if (params === undefined) { params = getURLParams(); }
 		return params.hitId;
 	}
 	
 	
-	var getSubmitTo = function() {
+	util.getSubmitTo = function() {
 		if (params === undefined) { params = getURLParams(); }
 		return params.turkSubmitTo + "/mturk/externalSubmit?assignmentId=" + params.assignmentId;
 	}
 	
-	var checkPreviewMode = function() {
+	util.checkPreviewMode = function() {
 		if (params === undefined) { params = getURLParams(); }
 		return (params.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE");
 	}
