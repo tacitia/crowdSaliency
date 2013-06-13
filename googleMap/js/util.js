@@ -38,5 +38,9 @@
 		}
 		return params;
 	}
+
+	function unescapeURL(s) {
+		return decodeURIComponent(s.replace(/\+/g, "%20"))
+	}
 	
 })(window.util = window.util || {}, jQuery);
