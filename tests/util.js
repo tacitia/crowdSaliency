@@ -31,7 +31,7 @@
 		$('body').append('<div id="submitDiv"><form id="submitForm"></form></div>');
 		var mturkSubmitDiv = $('#submitDiv');
 		var mturkSubmitForm = $('#submitForm');
-		mturkSubmitForm.append('<div><input type="submit" value="Submit"/></div>');
+		mturkSubmitForm.append('<div style="display:inline-block;"><input type="submit" value="Submit"/></div>');
 		mturkSubmitForm.attr('method', 'POST')
 		var submitTo = util.getSubmitTo();
 		mturkSubmitForm.attr('action', submitTo);
@@ -39,6 +39,8 @@
 		mturkSubmitDiv.css('width', '90%');
 		mturkSubmitDiv.css('height', 'auto');
 		mturkSubmitDiv.css('margin', '0 auto');
+		mturkSubmitDiv.css('text-align', 'center');
+		mturkSubmitForm.css('display', 'inline-block');
 	};
 	
 	function getURLParams() {
