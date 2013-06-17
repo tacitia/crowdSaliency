@@ -28,7 +28,7 @@
 	};
 	
 	util.appendSubmitForm = function() {
-		var mturkSubmitForm = $('body').append('div').append('<form></form>');
+		var mturkSubmitForm = $('body').append($('div')).append($('form'));
 		mturkSubmitForm.append('<div><input type="submit" value="Submit"/></div>');
 		mturkSubmitForm.attr('method', 'POST')
 		var submitTo = util.getSubmitTo();
