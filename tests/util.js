@@ -44,6 +44,10 @@
 		mturkSubmitDiv.css('margin', '0 auto');
 		mturkSubmitDiv.css('text-align', 'center');
 		mturkSubmitForm.css('display', 'inline-block');
+		
+		if (util.checkPreviewMode) {
+			$(':submit').attr('disabled', 'true');
+		}
 	};
 	
 	function getURLParams() {
