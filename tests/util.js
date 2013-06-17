@@ -45,7 +45,7 @@
 		mturkSubmitDiv.css('text-align', 'center');
 		mturkSubmitForm.css('display', 'inline-block');
 		
-		if (util.checkPreviewMode) {
+		if (util.checkPreviewMode()) {
 			$(':submit').attr('disabled', 'true');
 		}
 	};
