@@ -3,4 +3,5 @@ $(document).ready(function() {
 	$('#assignmentID').text("Assignment ID: " + util.getAssignmentID());
 	$('#hitID').text("HIT ID: " + util.getHitID());
 	$('#previewMode').text("Is preview mode: " + ( util.checkPreviewMode() ? "true" : "false"));
+	util.appendSubmitForm();
 });
