@@ -2,7 +2,7 @@ import sys
 import getopt
 import subprocess
 
-opts,extraargs = getopt.getopt(sys.argv[1:], 'u:bsraldm')
+opts,extraargs = getopt.getopt(sys.argv[1:], 'u:b:s:r:a:l:d:m:')
 
 fullUrl = 'none'
 imgBound = 'default'
@@ -12,6 +12,8 @@ autoApproval = 'default'
 lifeTime = 'default'
 duration = 'default'
 maxAssigns = 'default'
+
+print opts
 
 for o,p in opts:
 	if o in ['-u', '--fullUrl']:
