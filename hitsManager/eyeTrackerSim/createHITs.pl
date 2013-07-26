@@ -22,7 +22,7 @@ my $maxAssigns = ($params[7] eq 'default') ? 1 : $params[7];
 # Fixed parameters
 my $hitTitle = 'Look at and explore a few blurry images';
 my $hitDescription = 'You will be asked to look at a few images, mouse-click on them, and answer some questions.';
-my $hitKeywords = 'images, photographs, examine, explore, understanding';
+my $hitKeywords = 'images, photographs, examine, explore, understanding, tagging';
 
 # parameters derived on top of basic inputs
 my $question = '<ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">'
